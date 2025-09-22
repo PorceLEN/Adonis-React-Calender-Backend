@@ -1,0 +1,15 @@
+// {
+//   "extends": "@adonisjs/tsconfig/tsconfig.app.json",
+//   "compilerOptions": {
+//     "rootDir": "./",
+//     "outDir": "./build"
+//   }
+// }
+
+{
+  "extends": "./node_modules/@adonisjs/tsconfig/tsconfig.app.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./build"
+  }
+}
