@@ -12,22 +12,25 @@ export default class LoginController {
       await auth.use('web').login(user)
 
       const jsonResponse = {
-        message: "Connexion réussie",
+        message: 'Connexion réussie',
         user: {
           pseudo: user.pseudo,
           email: user.email,
         },
       }
-      console.log("Réponse JSON :", JSON.stringify(jsonResponse, null, 2))
 
-      return response.status(200).json(jsonResponse)
-    } catch (err) {
+      console.log(
+        `| ${jsonResponse.message} ! | Bienvenue ${JSON.stringify(jsonResponse.user.pseudo, null, 2)} ! |`
+      )
+
+      return response.status(200).json(jsonResponse.user.pseudo)
+    } catch (error) {
       const errorResponse = {
-        message: "Identifiants invalides",
-        error: err.message,
+        message: 'Identifiants invalides',
+        error: error.message,
       }
 
-      console.error("Erreur login :", JSON.stringify(errorResponse, null, 2))
+      console.error('Erreur login :', JSON.stringify(errorResponse, null, 2))
       return response.status(400).json(errorResponse)
     }
   }

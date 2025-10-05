@@ -14,9 +14,8 @@ export default class AuthController {
       return response.json({
         loggedIn: true,
         user: {
-          id: user.id,
           email: user.email,
-          username: user.pseudo,
+          pseudo: user.pseudo,
         },
       })
     } catch (error) {
