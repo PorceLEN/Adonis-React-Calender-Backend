@@ -13,18 +13,22 @@ export default class RegisterController {
         password,
       })
 
-      const jsonResponse = response.status(201).json({
-        message: 'Utilisateur créé avec succès',
+      const jsonResponse = {
+        message: 'Utilisateur créé avec succès !',
         user: {
           id: user.id,
           pseudo: user.pseudo,
           email: user.email,
         },
-      })
+      }
 
-      console.log(jsonResponse)
+       console.log(
+        `| ${jsonResponse.message} | Bienvenue ${JSON.stringify(jsonResponse.user.pseudo, null, 2)} ! |`
+      )
 
-      return jsonResponse
+
+      return response.status(200).json(jsonResponse.user.pseudo)
+
     } catch (error) {
       console.error(error)
       return response.status(500).json({
